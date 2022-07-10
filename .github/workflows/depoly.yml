@@ -66,7 +66,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: docker run -it --name next-blog -p 8080:8080 -d bitchigo/next-blog:last
+          script: docker run -it --name next-blog-dev --net=host -v /root/conf/blog.yml:/blog/application.yml -d ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
