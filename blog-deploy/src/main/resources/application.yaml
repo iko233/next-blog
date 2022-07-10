@@ -4,3 +4,6 @@ spring:
     password: ENC(1eXvsINHkVzBa3NzwsniUlhi8DSfe79oEq85rmm9+To=)
     url: ENC(anWqi1EhMk68dwm6hFLAkAb/Uf1sZuwKC7zAhzBp3pVTgb+BUMiW1xp/e/aq24c2cm3CIlcqx4BB8rAm85DIWyBqqPx2VsFnyZcaNxAhsiRmL469scb2QHhqNCeP8H4RUPBQ651Ed046bnce5x7DYJJpZL9dExTwxMpILGvWwEtyfzH3OU4/YdrsEtjeAoll9vsAhg2JkKuLujIXFbiwUbpCi2N9kieD3eJX5VjNl4GZAWR9nMrQYw==)
     driver-class-name: com.mysql.cj.jdbc.Driver
+jasypt:
+  encryptor:
+    password: ${JASYPT_PASSWORD}
