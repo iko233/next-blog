@@ -1,5 +1,6 @@
 package icu.bitchigo.blog.dao.entity.po;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
+@TableName("blog_classify")
 public class ClassifyDo {
     private Long id;
     private String name;

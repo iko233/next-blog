@@ -58,7 +58,7 @@ public class PostDaoImpl implements PostDao {
                                 .name(tagQuoteDo.getTagName())
                                 .build())
                         .toList()
-                ).classifyList(
+                ).classify(
                         ClassifyBo.builder()
                                 .id(postDo.getId())
                                 .name(postDo.getClassifyName())

@@ -1,5 +1,6 @@
 package icu.bitchigo.blog.dao.entity.po;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,6 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
+@TableName("blog_post")
 public class PostDo {
     private Long id;
     private Long userId;

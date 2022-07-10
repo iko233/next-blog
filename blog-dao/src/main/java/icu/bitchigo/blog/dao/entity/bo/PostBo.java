@@ -19,7 +19,7 @@ public class PostBo {
     private Long userId;
     private String userName;
     private List<TagBo> tagList;
-    private ClassifyBo classifyList;
+    private ClassifyBo classify;
     private String title;
     private String content;
     private Date createTime;
