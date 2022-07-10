@@ -66,7 +66,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: docker run -it --name next-blog-dev -p 8081:8080 -e JASYPT_PASSWORD='${{ secrets.JASYPT_PASSWORD }}' -d ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          script: docker run -it --name next-blog-dev -p 8081:8080 -v /root/conf/blog.yml:/blog/application.yml -d ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
