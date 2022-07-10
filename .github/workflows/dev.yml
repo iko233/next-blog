@@ -2,13 +2,13 @@ name: depoly
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "dev" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "dev" ]
   workflow_dispatch:
 env:
   IMAGE_NAME: bitchigo/next-blog
-  VERSION: last
+  VERSION: dev
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -58,7 +58,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: docker rmi -f bitchigo/next-blog:last
+          script: docker rmi -f ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
       - name: depoly
         uses: appleboy/ssh-action@master
         with:
@@ -66,7 +66,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: docker run -it --name next-blog -p 8080:8080 -d bitchigo/next-blog:last
+          script: docker run -it --name next-blog -p 8081:8080 -d ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
@@ -75,9 +75,5 @@ jobs:
           message: |
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
-
               Repository: ${{ github.repository }}
-
               See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-
-
